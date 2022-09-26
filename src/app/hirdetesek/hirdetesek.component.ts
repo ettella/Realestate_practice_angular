@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs'
 
 
-//lehetne model is, az any[] helyett - de erre nem lesz idő)
 interface Ingatlan {
 
 }
@@ -21,12 +20,6 @@ export class HirdetesekComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    // this.http.get<any[]>('http://localhost:5000/api/ingatlan')
-    // .subscribe((ingatlanok: any[])=>{
-    //   console.log(ingatlanok)
-    // this.hirdetesek = ingatlanok; // ez nem elég, csak akkor, ha átirjuk a string[]-ben lévő oszlopok neveit arra ami az apiban szerepel, és a html-ben is át kell irni. e helyett elegánsabb:
-
-
     this.http.get<any[]>('http://localhost:5000/api/ingatlan')
     .pipe(
       map((ingatlanok: any[])=> {
